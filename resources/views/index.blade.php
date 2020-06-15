@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -63,28 +64,28 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .btn-primary{
+                background: #007bff;
+                border-radius: 30px;
+                text-transform: uppercase;
+                padding: 10px 20px;
+                color: #fff;
+                border-color: #007bff;
+            }
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
+          
             <div class="content">
                 <img width="100" src="logo.png" alt="" />
                 <div class="title"> TRECHÃO </div>
+                <button  class="btn btn-primary" onclick="window.location='{{ route("selecionar-rota") }}'">Acessar</button>
             </div>
+
+          
+
         </div>
         @include('footer')
     </body>
