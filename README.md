@@ -77,3 +77,11 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+PARA INSTALAR A APLICAÇÃO:
+
+1 - composer install para instalar as bibliotecas
+
+2 - Rodar o comando php artisan serve para iniciar
+
+Atenção: você precisa ter instalado o Composer
