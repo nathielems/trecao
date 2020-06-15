@@ -4,6 +4,7 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
         <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
         <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+        <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}">
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
         <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" type="text/css"/>
 		<meta charset="utf-8">
@@ -113,6 +114,7 @@
             }
             .trajeto-roteiro .card{
                  margin: 20px;
+                 border: 1px solid rgba(0,0,0,.125);
             }
             .trajeto-roteiro .tempo-roteiro{
                 font-size: 40px;
@@ -168,7 +170,7 @@ const stepsHour = [{
             parado: 60,
             lastDay: null
         }, {
-            name: 'Dormir / Café da manhã',
+            name: 'Dormir',
             time: [0, 8],
             parado: 480,
             lastDay: null
@@ -249,7 +251,7 @@ const stepsHour = [{
 
                 if (step)
                 {
-                    paradas.push({name: step.name, hour: partida.getHours(), minute: partida.getMinutes()})
+                    paradas.push({name: step.name, hour: partida.getHours(), minute: partida.getMinutes(), local: cordinate.name})
                     step.lastDay = partida.getDay();
                     currentMarkers.push(new mapboxgl.Marker().setLngLat(cordinate.geometry.coordinates[0]).addTo(map));
                 }
@@ -265,8 +267,8 @@ const stepsHour = [{
                              "</span>"+
                              "<div class='media-body ml-3'>"+
                                  "<p class='mb-0'>"+
-                                     "<strong></strong><br/>"+
-                                     a.name +
+                                     "<strong>" + a.name + "</strong><br/>"+
+                                      a.local+
                                  "</p>"+
                              "</div>"+
                         "</div>"+
